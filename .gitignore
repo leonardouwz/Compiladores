@@ -1,0 +1,26 @@
+# Archivos generados por Flex
+lex.yy.c
+
+# Archivos objeto
+*.o
+
+# Ejecutable
+mini0_lexer
+
+# Archivos de backup
+*~
+*.swp
+*.swo
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.bak

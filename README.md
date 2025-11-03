@@ -41,7 +41,7 @@ typedef struct {
 - Caracteres no reconocidos generan tokens de tipo `TK_ERROR`
 - Se reporta la línea donde ocurre el error
 
-## 📁 Estructura del Repositorio
+## 📁 Estructura del laboratorio
 
 ```
 mini0-lexer/
@@ -104,9 +104,7 @@ make clean
 El programa genera una tabla con los tokens reconocidos:
 
 ```
-========================================
 ANÁLISIS LÉXICO - Mini-0
-========================================
 Total de tokens: 45
 
 LÍNEA  TIPO            LEXEMA               VALOR          
@@ -127,7 +125,6 @@ LÍNEA  TIPO            LEXEMA               VALOR
 3      LE              <=                  
 3      NUMERAL         1                   1              
 ...
-========================================
 ```
 
 ## 🧪 Casos de Prueba
@@ -194,18 +191,5 @@ mundo"
 
 ## 👥 Autores
 
-- [Tu Nombre]
-- [Nombre del compañero] (si aplica)
-
-## 📅 Fecha de Entrega
-
-03/11/2025
-
-## 🔗 Repositorio
-
-[Incluir link a GitHub aquí]
-
-## 📧 Contacto
-
-Para consultas sobre la implementación, contactar al profesor:
-**Phd. Marcela Quispe Cruz**
+- Leonardo Raphael Pachari Gomez
+- Angela Milagros Quispe Huanca
