@@ -1,0 +1,6 @@
+fun test_errors(): int
+    x: int
+    x = @error  // @ no es válido
+    y = #invalid // # no es válido
+    return x
+end
