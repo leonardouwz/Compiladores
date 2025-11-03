@@ -46,9 +46,7 @@ const char* token_type_to_string(TokenType type) {
 }
 
 void print_tokens(Token* tokens, int count) {
-    printf("========================================\n");
     printf("ANÁLISIS LÉXICO - Mini-0\n");
-    printf("========================================\n");
     printf("Total de tokens: %d\n\n", count);
     
     printf("%-6s %-15s %-20s %-15s\n", "LÍNEA", "TIPO", "LEXEMA", "VALOR");
@@ -66,6 +64,4 @@ void print_tokens(Token* tokens, int count) {
         
         printf("\n");
     }
-    
-    printf("========================================\n");
 }
