@@ -192,6 +192,11 @@ Statement *Parser::Stmt()
             throw SyntaxError{scanner->Lineno(), ss.str()};
         }
         Statement *inst = Stmt();
+        
+        // Conversión automática de int a bool en condiciones
+        if (cond->type == ExprType::INT)
+            cond = new IntToBool(cond);
+        
         stmt = new If(cond, inst);
         return stmt;
     }
@@ -214,6 +219,11 @@ Statement *Parser::Stmt()
             throw SyntaxError{scanner->Lineno(), ss.str()};
         }
         Statement *inst = Stmt();
+        
+        // Conversión automática de int a bool en condiciones
+        if (cond->type == ExprType::INT)
+            cond = new IntToBool(cond);
+        
         stmt = new While(cond, inst);
         return stmt;
     }
@@ -236,6 +246,11 @@ Statement *Parser::Stmt()
             throw SyntaxError{scanner->Lineno(), ss.str()};
         }
         Expression *cond = Bool();
+        
+        // Conversión automática de int a bool en condiciones
+        if (cond->type == ExprType::INT)
+            cond = new IntToBool(cond);
+        
         stmt = new DoWhile(inst, cond);
         if (!Match(')'))
         {
@@ -668,4 +683,3 @@ Node * Parser::Start()
 {
     return Program();
 }
-
