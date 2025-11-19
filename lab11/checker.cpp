@@ -138,6 +138,14 @@ void Traverse(Node *n)
             cout << "</UNARY> ";
             break;
         }
+        case INT_TO_BOOL:
+        {
+            IntToBool *itb = (IntToBool *)n;
+            cout << "<INT_TO_BOOL> ";
+            Traverse(itb->expr);
+            cout << "</INT_TO_BOOL> ";
+            break;
+        }
         case CONSTANT:
         {
             Constant *c = (Constant *)n;
