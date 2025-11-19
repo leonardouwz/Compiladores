@@ -73,7 +73,13 @@ Access::Access(int etype, Token * t, Expression * i, Expression * e): Expression
 
 Logical::Logical(Token *t, Expression *e1, Expression *e2) : Expression(NodeType::LOG, ExprType::BOOL, t), expr1(e1), expr2(e2)
 {
-    // verificacion de tipos
+    // Conversión automática de int a bool
+    if (expr1->type == ExprType::INT)
+        expr1 = new IntToBool(expr1);
+    if (expr2->type == ExprType::INT)
+        expr2 = new IntToBool(expr2);
+    
+    // Verificación de tipos después de conversiones
     if (expr1->type != ExprType::BOOL || expr2->type != ExprType::BOOL)
     {
         stringstream ss;
@@ -82,6 +88,10 @@ Logical::Logical(Token *t, Expression *e1, Expression *e2) : Expression(NodeType
            << expr2->Name() << ":" << expr2->Type() << ") ";
         throw SyntaxError{scanner->Lineno(), ss.str()};
     }
+    
+    // Actualizar los punteros después de posibles conversiones
+    this->expr1 = expr1;
+    this->expr2 = expr2;
 }
 
 // ----------
@@ -124,11 +134,35 @@ Arithmetic::Arithmetic(int etype, Token *t, Expression *e1, Expression *e2) : Ex
 
 UnaryExpr::UnaryExpr(int etype, Token *t, Expression *e) : Expression(NodeType::UNARY, etype, t), expr(e)
 {
-    // verificacion de tipos
-    if (expr->type != ExprType::BOOL)
+    // Conversión automática para el operador NOT (!)
+    if (t->lexeme == "!")
+    {
+        if (expr->type == ExprType::INT)
+            expr = new IntToBool(expr);
+        
+        if (expr->type != ExprType::BOOL)
+        {
+            stringstream ss;
+            ss << "\'" << token->lexeme << "\' usado con operando no booleano ("
+               << expr->Name() << ":" << expr->Type() << ")";
+            throw SyntaxError{scanner->Lineno(), ss.str()};
+        }
+        
+        this->expr = expr;
+    }
+}
+
+// -----------
+// IntToBool
+// -----------
+
+IntToBool::IntToBool(Expression *e) : Expression(NodeType::INT_TO_BOOL, ExprType::BOOL, e->token), expr(e)
+{
+    // Verifica que la expresión sea de tipo entero
+    if (expr->type != ExprType::INT)
     {
         stringstream ss;
-        ss << "\'" << token->lexeme << "\' usado con operando no booleano ("
+        ss << "conversión int->bool aplicada a expresión no entera ("
            << expr->Name() << ":" << expr->Type() << ")";
         throw SyntaxError{scanner->Lineno(), ss.str()};
     }
