@@ -1,4 +1,3 @@
-
 #ifndef COMPILER_AST
 #define COMPILER_AST
 
@@ -20,7 +19,8 @@ enum NodeType
     ASSIGN,
     IF_STMT,
     WHILE_STMT,
-    DOWHILE_STMT
+    DOWHILE_STMT,
+    INT_TO_BOOL  // Nuevo tipo para conversiones
 };
 
 enum ExprType
@@ -96,6 +96,13 @@ struct UnaryExpr : public Expression
 {
     Expression *expr;
     UnaryExpr(int etype, Token *t, Expression *e);
+};
+
+// Nueva estructura para conversión int->bool
+struct IntToBool : public Expression
+{
+    Expression *expr;
+    IntToBool(Expression *e);
 };
 
 struct Seq : public Statement
