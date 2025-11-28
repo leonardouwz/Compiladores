@@ -1,0 +1,29 @@
+fun sum_array(arr: []int, size: int): int
+    i: int
+    total: int
+    
+    total = 0
+    i = 0
+    
+    while i < size
+        total = total + arr[i]
+        i = i + 1
+    loop
+    
+    return total
+end
+
+fun main(): int
+    numbers: []int
+    result: int
+    
+    numbers = new [5] int
+    numbers[0] = 10
+    numbers[1] = 20
+    numbers[2] = 30
+    numbers[3] = 40
+    numbers[4] = 50
+    
+    result = sum_array(numbers, 5)
+    return result
+end

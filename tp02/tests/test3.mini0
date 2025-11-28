@@ -1,0 +1,8 @@
+/* Este es un comentario
+   de múltiples líneas */
+fun main(): int
+    // Comentario de línea
+    x: int
+    x = 42 /* comentario inline */
+    return x
+end

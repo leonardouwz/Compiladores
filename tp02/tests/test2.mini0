@@ -1,0 +1,11 @@
+fun test_literals(): int
+    a: int
+    b: int
+    s: string
+    
+    a = 15
+    b = 0x0f
+    s = "Hola\nmundo\t!"
+    
+    return a + b
+end

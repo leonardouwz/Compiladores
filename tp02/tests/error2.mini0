@@ -1,0 +1,9 @@
+fun factorial(n: int): int
+    return n
+end
+
+fun main(): int
+    x: int
+    x = factorial(5
+    return x
+end

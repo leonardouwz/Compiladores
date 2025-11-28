@@ -1,0 +1,5 @@
+fun test(): int
+    x int
+    x = 10
+    return x
+end

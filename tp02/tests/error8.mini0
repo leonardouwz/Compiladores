@@ -1,0 +1,4 @@
+fun test(): int
+    arr: []
+    return 0
+end

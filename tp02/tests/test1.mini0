@@ -1,0 +1,13 @@
+fun factorial(n: int): int
+    if n <= 1
+        return 1
+    else
+        return n * factorial(n - 1)
+    end
+end
+
+fun main(): int
+    x: int
+    x = factorial(5)
+    return x
+end

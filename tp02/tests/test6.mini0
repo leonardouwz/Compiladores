@@ -1,0 +1,15 @@
+fun test_operators(a: int, b: int): bool
+    result: bool
+    
+    result = (a > b) and (a >= 10) or not (b < 0)
+    
+    if a = b
+        return true
+    else
+        if a <> b
+            return false
+        end
+    end
+    
+    return result
+end
