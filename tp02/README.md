@@ -6,7 +6,8 @@
 ## 📋 Descripción
 
 Parser (analizador sintáctico) recursivo descendente para el lenguaje Mini-0. Implementa análisis predictivo LL(1) y valida programas según la gramática formal del lenguaje.
-
+Aquí se está poniendo el enlace de la Tabla Principal:
+https://github.com/leonardouwz/Compiladores/blob/main/tp02/TablaPrincipal.pdf
 ## 🎯 Características
 
 - ✅ Análisis sintáctico LL(1) completo
